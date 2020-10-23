@@ -8,7 +8,7 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
+}
   // generatePassword function should be below
 
   // ******* function logic starts here *******
@@ -22,7 +22,18 @@ function writePassword() {
   // WHEN prompted for the length of the password
   // THEN I choose a length of at least 8 characters and no more than 128 characters
   // we need a prompt that asks for the passoword length from the user
-  // check if the input is > 8 and < 128
+  // check if the input is < 8 and > 128
+  var passwordLength = prompt("How many characters do you want to have in your password?");
+    if(passwordLength < 8 || passwordLength > 128) {
+        alert("Please choose a password length of 8-128 characters.");
+    }
+    // else if(passwordLength < 129){
+    //     alert("Your password will be " + passwordLength + " characters long.");
+    // }
+    else {
+        alert("Please select criteria for your password");
+    }
+
 
   // WHEN I answer each prompt
   // THEN my input should be validated and at least one character type should be selected
@@ -60,7 +71,7 @@ function writePassword() {
 
 
 
-}
+
 
 // WHEN I click the button to generate a password
 // Add event listener to generate button
