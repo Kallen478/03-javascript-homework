@@ -17,7 +17,7 @@ var numeric = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // function to generate the password
-// function generatePassword() {
+function generatePassword() {
   var passwordLength = prompt("How many characters do you want to have in your password?");
     // validation for password length
     if(passwordLength < 8 || passwordLength > 128) {
@@ -85,8 +85,18 @@ var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", 
     else if (confirmLowercase && confirmUppercase && confirmNumeric && confirmSpecial) {
       criteria = lowercase.concat(uppercase, numeric, special);
     }
+    // make a random array of characters that will be converted to a string and pushed
+    var generator = [];
+    var securePassword = "";
+    // performs the randomization 
+    for(var i = 0; i < passwordLength; i++) {
+      var randomCharacters = criteria[Math.floor(Math.random() * criteria.length)];
+      generator.push(randomCharacters);
+    }
+    // returns the randomly generated secure pasword
+    securePassword = generator.join("");
+    return securePassword;
     
-    
-// }  
+}  
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
