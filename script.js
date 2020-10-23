@@ -32,6 +32,60 @@ var special = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", 
     var confirmNumeric = confirm("Would you like to use any numbers?");
     var confirmSpecial = confirm("Would you like to use any special characters?");
     }
+    // no criteria chosen
+    if (!confirmLowercase && !confirmUppercase && !confirmNumeric && !confirmSpecial) {
+      alert("Please make at least 1 criteria choice for the password.");
+    }
+    // 1 criteria choice
+    else if (confirmLowercase && !confirmUppercase && !confirmNumeric && !confirmSpecial) {
+      criteria = lowercase;
+    }
+    else if (!confirmLowercase && confirmUppercase && !confirmNumeric && !confirmSpecial) {
+      criteria = uppercase;
+    }
+    else if (!confirmLowercase && !confirmUppercase && confirmNumeric && !confirmSpecial) {
+      criteria = numeric;
+    }
+    else if (!confirmLowercase && !confirmUppercase && !confirmNumeric && confirmSpecial) {
+      criteria = special;
+    }
+    // 2 criteria choices
+    else if (confirmLowercase && confirmUppercase && !confirmNumeric && !confirmSpecial) {
+      criteria = lowercase.concat(uppercase);
+    }
+    else if (confirmLowercase && !confirmUppercase && confirmNumeric && !confirmSpecial) {
+      criteria = lowercase.concat(numeric);
+    }
+    else if (confirmLowercase && !confirmUppercase && !confirmNumeric && confirmSpecial) {
+      criteria = lowercase.concat(special);
+    }
+    else if (!confirmLowercase && confirmUppercase && confirmNumeric && !confirmSpecial) {
+      criteria = uppercase.concat(numeric);
+    }
+    else if (!confirmLowercase && confirmUppercase && !confirmNumeric && confirmSpecial) {
+      criteria = uppercase.concat(special);
+    }
+    else if (!confirmLowercase && !confirmUppercase && confirmNumeric && confirmSpecial) {
+      criteria = numeric.concat(special);
+    }
+    // 3 criteria choices
+    else if (confirmLowercase && confirmUppercase && confirmNumeric && !confirmSpecial) {
+      criteria = lowercase.concat(uppercase, numeric);
+    }
+    else if (confirmLowercase && confirmUppercase && !confirmNumeric && confirmSpecial) {
+      criteria = lowercase.concat(uppercase, special);
+    }
+    else if (confirmLowercase && !confirmUppercase && confirmNumeric && confirmSpecial) {
+      criteria = lowercase.concat(numeric, special);
+    }
+    else if (!confirmLowercase && confirmUppercase && confirmNumeric && confirmSpecial) {
+      criteria = uppercase.concat(numeric, special);
+    }
+    // choose all criteria
+    else if (confirmLowercase && confirmUppercase && confirmNumeric && confirmSpecial) {
+      criteria = lowercase.concat(uppercase, numeric, special);
+    }
+    
     
 // }  
 // Add event listener to generate button
